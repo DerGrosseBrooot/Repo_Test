@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nekromant – Das dunkle Reich</title>
+  <meta name="description" content="Klicke, sammle Mana, beschwöre Skelette und verteidige dein Reich gegen Wellen von Helden. Kostenloses HTML5-Browsergame.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= WERBUNG: Banner oben =================
+       Sobald du z. B. Google AdSense freigeschaltet hast, ersetze den
+       Platzhalter durch dein AdSense-Snippet:
+
+       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+       <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="1234567890"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+       DSGVO-Hinweis: In der EU nur nach Einwilligung des Nutzers laden
+       (z. B. ueber ein Consent-Management-Tool mit IAB-TCF-Unterstuetzung).
+  ============================================================ -->
+  <div id="ad-top" class="ad-slot">
+    <span>Werbebanner (oben) – hier AdSense/AdMob-Slot eintragen</span>
+  </div>
+
+  <header id="topbar">
+    <h1>⚰ Nekromant <span class="sub">– Das dunkle Reich</span></h1>
+    <div id="stats">
+      <span class="stat mana" title="Mana – durch Klicks auf das Spielfeld">🔮 <b id="st-mana">0</b></span>
+      <span class="stat souls" title="Seelen – Belohnung für besiegte Helden">💀 <b id="st-souls">0</b></span>
+      <span class="stat gold" title="Gold – ebenfalls durch besiegte Helden">🪙 <b id="st-gold">0</b></span>
+      <span class="stat wave" title="Aktuelle Welle">🌊 Welle <b id="st-wave">1</b></span>
+      <span class="stat nec" title="Leben deines Nekromanten">❤️ <b id="st-nexthp">100</b>/<b id="st-nectotal">100</b></span>
+    </div>
+    <div id="top-actions">
+      <button id="btn-ad" class="btn ad" title="Werbung ansehen und 2× Seelen erhalten">🎁 Werbung: 2× Seelen</button>
+      <button id="btn-sound" class="btn" title="Sound an/aus">🔊</button>
+      <button id="btn-reset" class="btn danger" title="Spielstand löschen">🗑</button>
+    </div>
+  </header>
+
+  <main id="layout">
+    <section id="arena">
+      <canvas id="game" width="960" height="480"></canvas>
+      <p class="hint">Klicke auf das Spielfeld, um <b>Mana</b> zu sammeln. Beschwöre unten rechts deine Armee!</p>
+    </section>
+
+    <aside id="shop">
+      <div class="shop-block">
+        <h2>⚔ Beschwörungen <small>(Mana)</small></h2>
+        <div id="summon-list"></div>
+      </div>
+      <div class="shop-block">
+        <h2>🪙 Upgrades <small>(Gold)</small></h2>
+        <div id="upgrade-list"></div>
+      </div>
+      <div class="shop-block">
+        <h2>💀 Dunkle Mächte <small>(Seelen)</small></h2>
+        <div id="soul-list"></div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- ================= WERBUNG: Banner unten =================
+       Gleiches Prinzip wie oben: Platzhalter durch eigenen
+       AdSense-/AdMob-Slot ersetzen (siehe Kommentar oben).
+  ============================================================ -->
+  <div id="ad-bottom" class="ad-slot">
+    <span>Werbebanner (unten) – hier AdSense/AdMob-Slot eintragen</span>
+  </div>
+
+  <!-- Overlay: Rewarded Ad (Demo-Modus; in Produktion durch echten Ad-Player ersetzen) -->
+  <div id="ad-modal" class="overlay hidden">
+    <div class="modal">
+      <h3>🎬 Werbung läuft …</h3>
+      <p class="demo-note">Demo-Modus – später echte Rewarded Ad (z. B. AdSense/AdMob), siehe <code>AD_CONFIG</code> in <code>game.js</code>.</p>
+      <div class="ad-progress"><div id="ad-progress-bar"></div></div>
+      <p id="ad-countdown">5</p>
+      <button id="ad-close" class="btn" disabled>Belohnung abholen</button>
+    </div>
+  </div>
+
+  <!-- Overlay: Game Over -->
+  <div id="gameover" class="overlay hidden">
+    <div class="modal">
+      <h3>💀 Dein Reich ist gefallen!</h3>
+      <p>Die Helden haben deinen Nekromanten besiegt. Welle <b id="go-wave">1</b> nicht geschafft.</p>
+      <p>Deine Seelen, Gold und Upgrades bleiben erhalten.</p>
+      <button id="btn-revive" class="btn">⚰ Wiederbelebung</button>
+    </div>
+  </div>
+
+  <div id="toast" class="hidden"></div>
+
+  <script src="game.js"></script>
+</body>
+</html>
