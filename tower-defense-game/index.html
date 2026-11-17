@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turmverteidigung – Das dunkle Tal</title>
+  <meta name="description" content="Kostenloses HTML5-Tower-Defense-Browsergame: Baue Türme, verteidige das dunkle Tal gegen immer stärkere Wellen. Reines Vanilla JS + Canvas.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= WERBUNG: Banner oben =================
+       Sobald du z. B. Google AdSense freigeschaltet hast, ersetze den
+       Platzhalter durch dein AdSense-Snippet (Publisher-ID + Slot-ID).
+       DSGVO-Hinweis: In der EU nur nach Einwilligung des Nutzers laden
+       (z. B. ueber ein Consent-Management-Tool mit IAB-TCF-Unterstuetzung).
+  ============================================================ -->
+  <div id="ad-top" class="ad-slot">
+    <span>Werbebanner (oben) – hier AdSense/AdMob-Slot eintragen</span>
+  </div>
+
+  <header id="topbar">
+    <h1>🗼 Turmverteidigung <span class="sub">– Das dunkle Tal</span></h1>
+    <div id="stats">
+      <span class="stat gold" title="Gold – Belohnung für besiegte Gegner">🪙 <b id="st-gold">0</b></span>
+      <span class="stat lives" title="Leben – verliere alle, und das Tal fällt">❤️ <b id="st-lives">0</b></span>
+      <span class="stat wave" title="Aktuelle Welle">🌊 Welle <b id="st-wave">1</b></span>
+      <span class="stat record" title="Rekord (meiste überstandene Wellen, lokal gespeichert)">🏆 <b id="st-record">0</b></span>
+    </div>
+    <div id="top-actions">
+      <button id="btn-wave" class="btn">▶ Welle starten</button>
+      <button id="btn-pause" class="btn" title="Pause (Taste P)">⏸</button>
+      <button id="btn-speed" class="btn" title="Spielgeschwindigkeit umschalten">1×</button>
+      <button id="btn-sound" class="btn" title="Sound an/aus">🔊</button>
+      <button id="btn-reset" class="btn danger" title="Rekord löschen und neu starten">🗑</button>
+    </div>
+  </header>
+
+  <main id="layout">
+    <section id="arena">
+      <canvas id="game" width="960" height="528"></canvas>
+      <p class="hint">Turm unten wählen und auf ein <b>freies Feld</b> klicken zum Bauen. Klicke auf einen gebauten Turm für Upgrade/Verkauf. Rechtsklick hebt die Auswahl auf.</p>
+    </section>
+
+    <aside id="shop">
+      <div class="shop-block">
+        <h2>🗼 Türme <small>(Gold)</small></h2>
+        <div id="tower-list"></div>
+      </div>
+      <div class="shop-block">
+        <h2>Turm-Details</h2>
+        <div id="tower-info"><p class="muted">Kein Turm ausgewählt – klicke auf einen gebauten Turm.</p></div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- ================= WERBUNG: Banner unten =================
+       Gleiches Prinzip wie oben: Platzhalter durch eigenen
+       AdSense-/AdMob-Slot ersetzen (siehe Kommentar oben).
+  ============================================================ -->
+  <div id="ad-bottom" class="ad-slot">
+    <span>Werbebanner (unten) – hier AdSense/AdMob-Slot eintragen</span>
+  </div>
+
+  <!-- Overlay: Game Over -->
+  <div id="gameover" class="overlay hidden">
+    <div class="modal">
+      <h3>💀 Das Tal ist gefallen!</h3>
+      <p>Die Gegner haben die Burg erreicht. Geschafft: Welle <b id="go-wave">1</b>.</p>
+      <p>Rekord: <b id="go-record">0</b> Welle(n). Der Rekord bleibt lokal gespeichert.</p>
+      <button id="btn-restart" class="btn">🔄 Neu starten</button>
+    </div>
+  </div>
+
+  <div id="toast" class="hidden"></div>
+
+  <script src="game.js"></script>
+</body>
+</html>
