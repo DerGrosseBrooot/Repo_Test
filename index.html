@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repo_Test – Browsergames</title>
+  <meta name="description" content="Kostenlose HTML5-Browsergames: Nekromant und Turmverteidigung.">
+  <style>
+    :root {
+      --bg: #0d0a14; --panel: #1d1530; --panel2: #251b3d; --border: #3d2c5e;
+      --text: #e6ddf5; --muted: #9a8bb8; --gold: #ffd257; --souls: #b28bff; --accent2: #37e08b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 24px;
+      background: radial-gradient(1200px 600px at 50% -10%, #241640 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    h1 { font-family: Georgia, "Times New Roman", serif; margin: 0; }
+    .games { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+    .card {
+      display: block; width: 300px; padding: 22px; text-decoration: none; color: var(--text);
+      background: linear-gradient(180deg, var(--panel2), var(--panel));
+      border: 1px solid var(--border); border-radius: 12px; text-align: center;
+      transition: transform 0.1s ease, box-shadow 0.15s ease;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(138, 92, 246, 0.35); }
+    .card .icon { font-size: 44px; }
+    .card h2 { font-family: Georgia, serif; margin: 10px 0 6px; font-size: 20px; }
+    .card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .card.nec h2 { color: var(--souls); }
+    .card.td h2 { color: var(--gold); }
+  </style>
+</head>
+<body>
+  <h1>🎮 Browsergames</h1>
+  <div class="games">
+    <a class="card nec" href="nekromanten-game/">
+      <div class="icon">⚰️</div>
+      <h2>Nekromant – Das dunkle Reich</h2>
+      <p>Klicke, sammle Mana, beschwöre Skelette und verteidige dein Reich gegen Wellen von Helden.</p>
+    </a>
+    <a class="card td" href="tower-defense-game/">
+      <div class="icon">🗼</div>
+      <h2>Turmverteidigung – Das dunkle Tal</h2>
+      <p>Baue Türme, upgrade sie und halte immer stärkere Gegnerwellen von deiner Burg fern.</p>
+    </a>
+  </div>
+</body>
+</html>
