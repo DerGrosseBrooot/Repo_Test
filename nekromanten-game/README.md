@@ -12,6 +12,12 @@ verteidige dein Reich gegen immer stärkere Wellen von Helden. Belohnungen: **Se
 | `style.css` | Dark-Fantasy-Theme |
 | `game.js` | komplette Spiellogik, Kampf, Shop, Speichern (localStorage), Ad-Hook |
 
+## Steuerung
+
+- **Klick auf das Spielfeld:** Mana sammeln (gelegentlich kritische 5x-Klicks)
+- **⏸-Button oder Taste P / Leertaste:** Pause – automatisch auch beim Tab-Wechsel
+- Shop rechts: Beschwörungen (Mana), Upgrades (Gold), Dunkle Mächte (Seelen)
+
 ## Lokal starten
 
 Einfach `index.html` im Browser öffnen (Doppelklick) – oder lokal servieren:
